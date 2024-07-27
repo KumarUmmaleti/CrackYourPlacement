@@ -1,0 +1,18 @@
+class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+        int res = sumleft(root);
+        return res;
+    }
+    public int sumleft(TreeNode node){
+        int sum = 0;
+        if(node==null){
+            return 0;
+        }
+        if(node.left != null && node.left.left == null && node.left.right == null){
+            sum = sum + node.left.val;
+        }
+        sum = sum + sumleft(node.left);
+        sum = sum + sumleft(node.right);
+        return sum;
+    }
+}
